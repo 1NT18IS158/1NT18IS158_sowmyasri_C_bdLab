@@ -1,0 +1,3016 @@
+1.IMPORTING THE CSV FILE
+
+C:\Program Files\MongoDB\Server\4.4\bin>mongoimport --type csv -d trail -c worldhappiness --headerline --drop 2019.csv
+2021-04-15T16:01:59.326+0530    connected to: mongodb://localhost/
+2021-04-15T16:01:59.332+0530    dropping: trail.worldhappiness
+2021-04-15T16:01:59.626+0530    156 document(s) imported successfully. 0 document(s) failed to import.
+
+2. EXECUTE AT LEAST 15 QUERIES
+
+1. exploring the data
+Microsoft Windows [Version 10.0.19042.867]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\SOWMYA>cd C:\Program Files\MongoDB\Server\4.4\bin
+
+C:\Program Files\MongoDB\Server\4.4\bin>mongo
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("af8c8ea9-c494-418a-a19c-66ff697f8878") }
+MongoDB server version: 4.4.4
+---
+The server generated these startup warnings when booting:
+        2021-04-15T15:19:50.648+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2021-04-15T15:19:50.649+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> use trail;
+switched to db trail
+> show collections;
+student
+worldhappiness
+> db.worldhappiness.find()
+{ "_id" : ObjectId("6078161f592bd5cd48530514"), "Overall rank" : 1, "Country or region" : "Finland", "Score" : 7.769, "GDP per capita" : 1.34, "Social support" : 1.587, "Healthy life expectancy" : 0.986, "Freedom to make life choices" : 0.596, "Generosity" : 0.153, "Perceptions of corruption" : 0.393 }
+{ "_id" : ObjectId("6078161f592bd5cd48530515"), "Overall rank" : 2, "Country or region" : "Denmark", "Score" : 7.6, "GDP per capita" : 1.383, "Social support" : 1.573, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.592, "Generosity" : 0.252, "Perceptions of corruption" : 0.41 }
+{ "_id" : ObjectId("6078161f592bd5cd48530516"), "Overall rank" : 4, "Country or region" : "Iceland", "Score" : 7.494, "GDP per capita" : 1.38, "Social support" : 1.624, "Healthy life expectancy" : 1.026, "Freedom to make life choices" : 0.591, "Generosity" : 0.354, "Perceptions of corruption" : 0.118 }
+{ "_id" : ObjectId("6078161f592bd5cd48530517"), "Overall rank" : 6, "Country or region" : "Switzerland", "Score" : 7.48, "GDP per capita" : 1.452, "Social support" : 1.526, "Healthy life expectancy" : 1.052, "Freedom to make life choices" : 0.572, "Generosity" : 0.263, "Perceptions of corruption" : 0.343 }
+{ "_id" : ObjectId("6078161f592bd5cd48530518"), "Overall rank" : 5, "Country or region" : "Netherlands", "Score" : 7.488, "GDP per capita" : 1.396, "Social support" : 1.522, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.557, "Generosity" : 0.322, "Perceptions of corruption" : 0.298 }
+{ "_id" : ObjectId("6078161f592bd5cd48530519"), "Overall rank" : 7, "Country or region" : "Sweden", "Score" : 7.343, "GDP per capita" : 1.387, "Social support" : 1.487, "Healthy life expectancy" : 1.009, "Freedom to make life choices" : 0.574, "Generosity" : 0.267, "Perceptions of corruption" : 0.373 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051a"), "Overall rank" : 9, "Country or region" : "Canada", "Score" : 7.278, "GDP per capita" : 1.365, "Social support" : 1.505, "Healthy life expectancy" : 1.039, "Freedom to make life choices" : 0.584, "Generosity" : 0.285, "Perceptions of corruption" : 0.308 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051b"), "Overall rank" : 8, "Country or region" : "New Zealand", "Score" : 7.307, "GDP per capita" : 1.303, "Social support" : 1.557, "Healthy life expectancy" : 1.026, "Freedom to make life choices" : 0.585, "Generosity" : 0.33, "Perceptions of corruption" : 0.38 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051c"), "Overall rank" : 3, "Country or region" : "Norway", "Score" : 7.554, "GDP per capita" : 1.488, "Social support" : 1.582, "Healthy life expectancy" : 1.028, "Freedom to make life choices" : 0.603, "Generosity" : 0.271, "Perceptions of corruption" : 0.341 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051d"), "Overall rank" : 17, "Country or region" : "Germany", "Score" : 6.985, "GDP per capita" : 1.373, "Social support" : 1.454, "Healthy life expectancy" : 0.987, "Freedom to make life choices" : 0.495, "Generosity" : 0.261, "Perceptions of corruption" : 0.265 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051e"), "Overall rank" : 18, "Country or region" : "Belgium", "Score" : 6.923, "GDP per capita" : 1.356, "Social support" : 1.504, "Healthy life expectancy" : 0.986, "Freedom to make life choices" : 0.473, "Generosity" : 0.16, "Perceptions of corruption" : 0.21 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051f"), "Overall rank" : 19, "Country or region" : "United States", "Score" : 6.892, "GDP per capita" : 1.433, "Social support" : 1.457, "Healthy life expectancy" : 0.874, "Freedom to make life choices" : 0.454, "Generosity" : 0.28, "Perceptions of corruption" : 0.128 }
+{ "_id" : ObjectId("6078161f592bd5cd48530520"), "Overall rank" : 20, "Country or region" : "Czech Republic", "Score" : 6.852, "GDP per capita" : 1.269, "Social support" : 1.487, "Healthy life expectancy" : 0.92, "Freedom to make life choices" : 0.457, "Generosity" : 0.046, "Perceptions of corruption" : 0.036 }
+{ "_id" : ObjectId("6078161f592bd5cd48530521"), "Overall rank" : 21, "Country or region" : "United Arab Emirates", "Score" : 6.825, "GDP per capita" : 1.503, "Social support" : 1.31, "Healthy life expectancy" : 0.825, "Freedom to make life choices" : 0.598, "Generosity" : 0.262, "Perceptions of corruption" : 0.182 }
+{ "_id" : ObjectId("6078161f592bd5cd48530522"), "Overall rank" : 22, "Country or region" : "Malta", "Score" : 6.726, "GDP per capita" : 1.3, "Social support" : 1.52, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.564, "Generosity" : 0.375, "Perceptions of corruption" : 0.151 }
+{ "_id" : ObjectId("6078161f592bd5cd48530523"), "Overall rank" : 23, "Country or region" : "Mexico", "Score" : 6.595, "GDP per capita" : 1.07, "Social support" : 1.323, "Healthy life expectancy" : 0.861, "Freedom to make life choices" : 0.433, "Generosity" : 0.074, "Perceptions of corruption" : 0.073 }
+{ "_id" : ObjectId("6078161f592bd5cd48530524"), "Overall rank" : 24, "Country or region" : "France", "Score" : 6.592, "GDP per capita" : 1.324, "Social support" : 1.472, "Healthy life expectancy" : 1.045, "Freedom to make life choices" : 0.436, "Generosity" : 0.111, "Perceptions of corruption" : 0.183 }
+{ "_id" : ObjectId("6078161f592bd5cd48530525"), "Overall rank" : 25, "Country or region" : "Taiwan", "Score" : 6.446, "GDP per capita" : 1.368, "Social support" : 1.43, "Healthy life expectancy" : 0.914, "Freedom to make life choices" : 0.351, "Generosity" : 0.242, "Perceptions of corruption" : 0.097 }
+{ "_id" : ObjectId("6078161f592bd5cd48530526"), "Overall rank" : 26, "Country or region" : "Chile", "Score" : 6.444, "GDP per capita" : 1.159, "Social support" : 1.369, "Healthy life expectancy" : 0.92, "Freedom to make life choices" : 0.357, "Generosity" : 0.187, "Perceptions of corruption" : 0.056 }
+{ "_id" : ObjectId("6078161f592bd5cd48530527"), "Overall rank" : 15, "Country or region" : "United Kingdom", "Score" : 7.054, "GDP per capita" : 1.333, "Social support" : 1.538, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.45, "Generosity" : 0.348, "Perceptions of corruption" : 0.278 }
+Type "it" for more
+> db.worldhappiness.find().pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530519"),
+        "Overall rank" : 7,
+        "Country or region" : "Sweden",
+        "Score" : 7.343,
+        "GDP per capita" : 1.387,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 1.009,
+        "Freedom to make life choices" : 0.574,
+        "Generosity" : 0.267,
+        "Perceptions of corruption" : 0.373
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051d"),
+        "Overall rank" : 17,
+        "Country or region" : "Germany",
+        "Score" : 6.985,
+        "GDP per capita" : 1.373,
+        "Social support" : 1.454,
+        "Healthy life expectancy" : 0.987,
+        "Freedom to make life choices" : 0.495,
+        "Generosity" : 0.261,
+        "Perceptions of corruption" : 0.265
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051e"),
+        "Overall rank" : 18,
+        "Country or region" : "Belgium",
+        "Score" : 6.923,
+        "GDP per capita" : 1.356,
+        "Social support" : 1.504,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.473,
+        "Generosity" : 0.16,
+        "Perceptions of corruption" : 0.21
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051f"),
+        "Overall rank" : 19,
+        "Country or region" : "United States",
+        "Score" : 6.892,
+        "GDP per capita" : 1.433,
+        "Social support" : 1.457,
+        "Healthy life expectancy" : 0.874,
+        "Freedom to make life choices" : 0.454,
+        "Generosity" : 0.28,
+        "Perceptions of corruption" : 0.128
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530520"),
+        "Overall rank" : 20,
+        "Country or region" : "Czech Republic",
+        "Score" : 6.852,
+        "GDP per capita" : 1.269,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 0.92,
+        "Freedom to make life choices" : 0.457,
+        "Generosity" : 0.046,
+        "Perceptions of corruption" : 0.036
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530521"),
+        "Overall rank" : 21,
+        "Country or region" : "United Arab Emirates",
+        "Score" : 6.825,
+        "GDP per capita" : 1.503,
+        "Social support" : 1.31,
+        "Healthy life expectancy" : 0.825,
+        "Freedom to make life choices" : 0.598,
+        "Generosity" : 0.262,
+        "Perceptions of corruption" : 0.182
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530522"),
+        "Overall rank" : 22,
+        "Country or region" : "Malta",
+        "Score" : 6.726,
+        "GDP per capita" : 1.3,
+        "Social support" : 1.52,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.564,
+        "Generosity" : 0.375,
+        "Perceptions of corruption" : 0.151
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530523"),
+        "Overall rank" : 23,
+        "Country or region" : "Mexico",
+        "Score" : 6.595,
+        "GDP per capita" : 1.07,
+        "Social support" : 1.323,
+        "Healthy life expectancy" : 0.861,
+        "Freedom to make life choices" : 0.433,
+        "Generosity" : 0.074,
+        "Perceptions of corruption" : 0.073
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530524"),
+        "Overall rank" : 24,
+        "Country or region" : "France",
+        "Score" : 6.592,
+        "GDP per capita" : 1.324,
+        "Social support" : 1.472,
+        "Healthy life expectancy" : 1.045,
+        "Freedom to make life choices" : 0.436,
+        "Generosity" : 0.111,
+        "Perceptions of corruption" : 0.183
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530525"),
+        "Overall rank" : 25,
+        "Country or region" : "Taiwan",
+        "Score" : 6.446,
+        "GDP per capita" : 1.368,
+        "Social support" : 1.43,
+        "Healthy life expectancy" : 0.914,
+        "Freedom to make life choices" : 0.351,
+        "Generosity" : 0.242,
+        "Perceptions of corruption" : 0.097
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530526"),
+        "Overall rank" : 26,
+        "Country or region" : "Chile",
+        "Score" : 6.444,
+        "GDP per capita" : 1.159,
+        "Social support" : 1.369,
+        "Healthy life expectancy" : 0.92,
+        "Freedom to make life choices" : 0.357,
+        "Generosity" : 0.187,
+        "Perceptions of corruption" : 0.056
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530527"),
+        "Overall rank" : 15,
+        "Country or region" : "United Kingdom",
+        "Score" : 7.054,
+        "GDP per capita" : 1.333,
+        "Social support" : 1.538,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.45,
+        "Generosity" : 0.348,
+        "Perceptions of corruption" : 0.278
+}
+
+2. FIND ALL THE DETAILS OF THE TOP 10  HAPPY COUNTRIES (USING OVERALL SCORE) 
+  
+> db.worldhappiness.find({"Overall rank":{$lt:10}});
+{ "_id" : ObjectId("6078161f592bd5cd48530514"), "Overall rank" : 1, "Country or region" : "Finland", "Score" : 7.769, "GDP per capita" : 1.34, "Social support" : 1.587, "Healthy life expectancy" : 0.986, "Freedom to make life choices" : 0.596, "Generosity" : 0.153, "Perceptions of corruption" : 0.393 }
+{ "_id" : ObjectId("6078161f592bd5cd48530515"), "Overall rank" : 2, "Country or region" : "Denmark", "Score" : 7.6, "GDP per capita" : 1.383, "Social support" : 1.573, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.592, "Generosity" : 0.252, "Perceptions of corruption" : 0.41 }
+{ "_id" : ObjectId("6078161f592bd5cd48530516"), "Overall rank" : 4, "Country or region" : "Iceland", "Score" : 7.494, "GDP per capita" : 1.38, "Social support" : 1.624, "Healthy life expectancy" : 1.026, "Freedom to make life choices" : 0.591, "Generosity" : 0.354, "Perceptions of corruption" : 0.118 }
+{ "_id" : ObjectId("6078161f592bd5cd48530517"), "Overall rank" : 6, "Country or region" : "Switzerland", "Score" : 7.48, "GDP per capita" : 1.452, "Social support" : 1.526, "Healthy life expectancy" : 1.052, "Freedom to make life choices" : 0.572, "Generosity" : 0.263, "Perceptions of corruption" : 0.343 }
+{ "_id" : ObjectId("6078161f592bd5cd48530518"), "Overall rank" : 5, "Country or region" : "Netherlands", "Score" : 7.488, "GDP per capita" : 1.396, "Social support" : 1.522, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.557, "Generosity" : 0.322, "Perceptions of corruption" : 0.298 }
+{ "_id" : ObjectId("6078161f592bd5cd48530519"), "Overall rank" : 7, "Country or region" : "Sweden", "Score" : 7.343, "GDP per capita" : 1.387, "Social support" : 1.487, "Healthy life expectancy" : 1.009, "Freedom to make life choices" : 0.574, "Generosity" : 0.267, "Perceptions of corruption" : 0.373 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051a"), "Overall rank" : 9, "Country or region" : "Canada", "Score" : 7.278, "GDP per capita" : 1.365, "Social support" : 1.505, "Healthy life expectancy" : 1.039, "Freedom to make life choices" : 0.584, "Generosity" : 0.285, "Perceptions of corruption" : 0.308 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051b"), "Overall rank" : 8, "Country or region" : "New Zealand", "Score" : 7.307, "GDP per capita" : 1.303, "Social support" : 1.557, "Healthy life expectancy" : 1.026, "Freedom to make life choices" : 0.585, "Generosity" : 0.33, "Perceptions of corruption" : 0.38 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051c"), "Overall rank" : 3, "Country or region" : "Norway", "Score" : 7.554, "GDP per capita" : 1.488, "Social support" : 1.582, "Healthy life expectancy" : 1.028, "Freedom to make life choices" : 0.603, "Generosity" : 0.271, "Perceptions of corruption" : 0.341 }
+> db.worldhappiness.find({"Overall rank":{$lt:10}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530519"),
+        "Overall rank" : 7,
+        "Country or region" : "Sweden",
+        "Score" : 7.343,
+        "GDP per capita" : 1.387,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 1.009,
+        "Freedom to make life choices" : 0.574,
+        "Generosity" : 0.267,
+        "Perceptions of corruption" : 0.373
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+> db.worldhappiness.find({"Overall rank":{$lt:5}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+
+
+3.gt
+  FIND THE DETAILS OF ALL COUNTRIES WHOSE % OF FREEDOM TO MAKE LIFE CHOICES IS GREATER THAN 50% 
+
+ > db.worldhappiness.find({"Freedom to make life choices":{$gt:0.50}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530519"),
+        "Overall rank" : 7,
+        "Country or region" : "Sweden",
+        "Score" : 7.343,
+        "GDP per capita" : 1.387,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 1.009,
+        "Freedom to make life choices" : 0.574,
+        "Generosity" : 0.267,
+        "Perceptions of corruption" : 0.373
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530521"),
+        "Overall rank" : 21,
+        "Country or region" : "United Arab Emirates",
+        "Score" : 6.825,
+        "GDP per capita" : 1.503,
+        "Social support" : 1.31,
+        "Healthy life expectancy" : 0.825,
+        "Freedom to make life choices" : 0.598,
+        "Generosity" : 0.262,
+        "Perceptions of corruption" : 0.182
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530522"),
+        "Overall rank" : 22,
+        "Country or region" : "Malta",
+        "Score" : 6.726,
+        "GDP per capita" : 1.3,
+        "Social support" : 1.52,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.564,
+        "Generosity" : 0.375,
+        "Perceptions of corruption" : 0.151
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530528"),
+        "Overall rank" : 27,
+        "Country or region" : "Guatemala",
+        "Score" : 6.436,
+        "GDP per capita" : 0.8,
+        "Social support" : 1.269,
+        "Healthy life expectancy" : 0.746,
+        "Freedom to make life choices" : 0.535,
+        "Generosity" : 0.175,
+        "Perceptions of corruption" : 0.078
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530529"),
+        "Overall rank" : 29,
+        "Country or region" : "Qatar",
+        "Score" : 6.374,
+        "GDP per capita" : 1.684,
+        "Social support" : 1.313,
+        "Healthy life expectancy" : 0.871,
+        "Freedom to make life choices" : 0.555,
+        "Generosity" : 0.22,
+        "Perceptions of corruption" : 0.167
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052c"),
+        "Overall rank" : 31,
+        "Country or region" : "Panama",
+        "Score" : 6.321,
+        "GDP per capita" : 1.149,
+        "Social support" : 1.442,
+        "Healthy life expectancy" : 0.91,
+        "Freedom to make life choices" : 0.516,
+        "Generosity" : 0.109,
+        "Perceptions of corruption" : 0.054
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052d"),
+        "Overall rank" : 33,
+        "Country or region" : "Uruguay",
+        "Score" : 6.293,
+        "GDP per capita" : 1.124,
+        "Social support" : 1.465,
+        "Healthy life expectancy" : 0.891,
+        "Freedom to make life choices" : 0.523,
+        "Generosity" : 0.127,
+        "Perceptions of corruption" : 0.15
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052f"),
+        "Overall rank" : 34,
+        "Country or region" : "Singapore",
+        "Score" : 6.262,
+        "GDP per capita" : 1.572,
+        "Social support" : 1.463,
+        "Healthy life expectancy" : 1.141,
+        "Freedom to make life choices" : 0.556,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.453
+}
+
+{
+        "_id" : ObjectId("6078161f592bd5cd48530531"),
+        "Overall rank" : 14,
+        "Country or region" : "Luxembourg",
+        "Score" : 7.09,
+        "GDP per capita" : 1.609,
+        "Social support" : 1.479,
+        "Healthy life expectancy" : 1.012,
+        "Freedom to make life choices" : 0.526,
+        "Generosity" : 0.194,
+        "Perceptions of corruption" : 0.316
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530532"),
+        "Overall rank" : 10,
+        "Country or region" : "Austria",
+        "Score" : 7.246,
+        "GDP per capita" : 1.376,
+        "Social support" : 1.475,
+        "Healthy life expectancy" : 1.016,
+        "Freedom to make life choices" : 0.532,
+        "Generosity" : 0.244,
+        "Perceptions of corruption" : 0.226
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530533"),
+        "Overall rank" : 16,
+        "Country or region" : "Ireland",
+        "Score" : 7.021,
+        "GDP per capita" : 1.499,
+        "Social support" : 1.553,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.516,
+        "Generosity" : 0.298,
+        "Perceptions of corruption" : 0.31
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530534"),
+        "Overall rank" : 11,
+        "Country or region" : "Australia",
+        "Score" : 7.228,
+        "GDP per capita" : 1.372,
+        "Social support" : 1.548,
+        "Healthy life expectancy" : 1.036,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.332,
+        "Perceptions of corruption" : 0.29
+}
+Type "it" for more
+> db.worldhappiness.find({"Freedom to make life choices":{$gt:0.80}}).pretty();
+> db.worldhappiness.find({"Freedom to make life choices":{$gt:0.70}}).pretty();
+> db.worldhappiness.find({"Freedom to make life choices":{$gt:0.60}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853053c"),
+        "Overall rank" : 41,
+        "Country or region" : "Uzbekistan",
+        "Score" : 6.174,
+        "GDP per capita" : 0.745,
+        "Social support" : 1.529,
+        "Healthy life expectancy" : 0.756,
+        "Freedom to make life choices" : 0.631,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.24
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530590"),
+        "Overall rank" : 109,
+        "Country or region" : "Cambodia",
+        "Score" : 4.7,
+        "GDP per capita" : 0.574,
+        "Social support" : 1.122,
+        "Healthy life expectancy" : 0.637,
+        "Freedom to make life choices" : 0.609,
+        "Generosity" : 0.232,
+        "Perceptions of corruption" : 0.062
+}
+
+4.GET ALL THE DETAILS ABOUT INDIA ($MATCH)
+> db.worldhappiness.aggregate([{$match:{"Country or region":"India"}}]).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059e"),
+        "Overall rank" : 140,
+        "Country or region" : "India",
+        "Score" : 4.015,
+        "GDP per capita" : 0.755,
+        "Social support" : 0.765,
+        "Healthy life expectancy" : 0.588,
+        "Freedom to make life choices" : 0.498,
+        "Generosity" : 0.2,
+        "Perceptions of corruption" : 0.085
+}
+
+5. FIND ALL THE DETAILS OF THE COUNTRIES THAT HAVE THE LOWEST HAPPINESS SCORE
+> db.worldhappiness.find({"Overall rank":{$gt:120}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530586"),
+        "Overall rank" : 121,
+        "Country or region" : "Kenya",
+        "Score" : 4.509,
+        "GDP per capita" : 0.512,
+        "Social support" : 0.983,
+        "Healthy life expectancy" : 0.581,
+        "Freedom to make life choices" : 0.431,
+        "Generosity" : 0.372,
+        "Perceptions of corruption" : 0.053
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530587"),
+        "Overall rank" : 122,
+        "Country or region" : "Mauritania",
+        "Score" : 4.49,
+        "GDP per capita" : 0.57,
+        "Social support" : 1.167,
+        "Healthy life expectancy" : 0.489,
+        "Freedom to make life choices" : 0.066,
+        "Generosity" : 0.106,
+        "Perceptions of corruption" : 0.088
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530588"),
+        "Overall rank" : 123,
+        "Country or region" : "Mozambique",
+        "Score" : 4.466,
+        "GDP per capita" : 0.204,
+        "Social support" : 0.986,
+        "Healthy life expectancy" : 0.39,
+        "Freedom to make life choices" : 0.494,
+        "Generosity" : 0.197,
+        "Perceptions of corruption" : 0.138
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530589"),
+        "Overall rank" : 124,
+        "Country or region" : "Tunisia",
+        "Score" : 4.461,
+        "GDP per capita" : 0.921,
+        "Social support" : 1,
+        "Healthy life expectancy" : 0.815,
+        "Freedom to make life choices" : 0.167,
+        "Generosity" : 0.059,
+        "Perceptions of corruption" : 0.055
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853058a"),
+        "Overall rank" : 125,
+        "Country or region" : "Bangladesh",
+        "Score" : 4.456,
+        "GDP per capita" : 0.562,
+        "Social support" : 0.928,
+        "Healthy life expectancy" : 0.723,
+        "Freedom to make life choices" : 0.527,
+        "Generosity" : 0.166,
+        "Perceptions of corruption" : 0.143
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853058b"),
+        "Overall rank" : 126,
+        "Country or region" : "Iraq",
+        "Score" : 4.437,
+        "GDP per capita" : 1.043,
+        "Social support" : 0.98,
+        "Healthy life expectancy" : 0.574,
+        "Freedom to make life choices" : 0.241,
+        "Generosity" : 0.148,
+        "Perceptions of corruption" : 0.089
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853058c"),
+        "Overall rank" : 128,
+        "Country or region" : "Mali",
+        "Score" : 4.39,
+        "GDP per capita" : 0.385,
+        "Social support" : 1.105,
+        "Healthy life expectancy" : 0.308,
+        "Freedom to make life choices" : 0.327,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.052
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530591"),
+        "Overall rank" : 127,
+        "Country or region" : "Congo (Kinshasa)",
+        "Score" : 4.418,
+        "GDP per capita" : 0.094,
+        "Social support" : 1.125,
+        "Healthy life expectancy" : 0.357,
+        "Freedom to make life choices" : 0.269,
+        "Generosity" : 0.212,
+        "Perceptions of corruption" : 0.053
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530593"),
+        "Overall rank" : 129,
+        "Country or region" : "Sierra Leone",
+        "Score" : 4.374,
+        "GDP per capita" : 0.268,
+        "Social support" : 0.841,
+        "Healthy life expectancy" : 0.242,
+        "Freedom to make life choices" : 0.309,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.045
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530595"),
+        "Overall rank" : 131,
+        "Country or region" : "Myanmar",
+        "Score" : 4.36,
+        "GDP per capita" : 0.71,
+        "Social support" : 1.181,
+        "Healthy life expectancy" : 0.555,
+        "Freedom to make life choices" : 0.525,
+        "Generosity" : 0.566,
+        "Perceptions of corruption" : 0.172
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530596"),
+        "Overall rank" : 130,
+        "Country or region" : "Sri Lanka",
+        "Score" : 4.366,
+        "GDP per capita" : 0.949,
+        "Social support" : 1.265,
+        "Healthy life expectancy" : 0.831,
+        "Freedom to make life choices" : 0.47,
+        "Generosity" : 0.244,
+        "Perceptions of corruption" : 0.047
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530597"),
+        "Overall rank" : 132,
+        "Country or region" : "Chad",
+        "Score" : 4.35,
+        "GDP per capita" : 0.35,
+        "Social support" : 0.766,
+        "Healthy life expectancy" : 0.192,
+        "Freedom to make life choices" : 0.174,
+        "Generosity" : 0.198,
+        "Perceptions of corruption" : 0.078
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530598"),
+        "Overall rank" : 133,
+        "Country or region" : "Ukraine",
+        "Score" : 4.332,
+        "GDP per capita" : 0.82,
+        "Social support" : 1.39,
+        "Healthy life expectancy" : 0.739,
+        "Freedom to make life choices" : 0.178,
+        "Generosity" : 0.187,
+        "Perceptions of corruption" : 0.01
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530599"),
+        "Overall rank" : 134,
+        "Country or region" : "Ethiopia",
+        "Score" : 4.286,
+        "GDP per capita" : 0.336,
+        "Social support" : 1.033,
+        "Healthy life expectancy" : 0.532,
+        "Freedom to make life choices" : 0.344,
+        "Generosity" : 0.209,
+        "Perceptions of corruption" : 0.1
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059a"),
+        "Overall rank" : 136,
+        "Country or region" : "Uganda",
+        "Score" : 4.189,
+        "GDP per capita" : 0.332,
+        "Social support" : 1.069,
+        "Healthy life expectancy" : 0.443,
+        "Freedom to make life choices" : 0.356,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.06
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059b"),
+        "Overall rank" : 138,
+        "Country or region" : "Zambia",
+        "Score" : 4.107,
+        "GDP per capita" : 0.578,
+        "Social support" : 1.058,
+        "Healthy life expectancy" : 0.426,
+        "Freedom to make life choices" : 0.431,
+        "Generosity" : 0.247,
+        "Perceptions of corruption" : 0.087
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059c"),
+        "Overall rank" : 135,
+        "Country or region" : "Swaziland",
+        "Score" : 4.212,
+        "GDP per capita" : 0.811,
+        "Social support" : 1.149,
+        "Healthy life expectancy" : 0,
+        "Freedom to make life choices" : 0.313,
+        "Generosity" : 0.074,
+        "Perceptions of corruption" : 0.135
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059d"),
+        "Overall rank" : 139,
+        "Country or region" : "Togo",
+        "Score" : 4.085,
+        "GDP per capita" : 0.275,
+        "Social support" : 0.572,
+        "Healthy life expectancy" : 0.41,
+        "Freedom to make life choices" : 0.293,
+        "Generosity" : 0.177,
+        "Perceptions of corruption" : 0.085
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059e"),
+        "Overall rank" : 140,
+        "Country or region" : "India",
+        "Score" : 4.015,
+        "GDP per capita" : 0.755,
+        "Social support" : 0.765,
+        "Healthy life expectancy" : 0.588,
+        "Freedom to make life choices" : 0.498,
+        "Generosity" : 0.2,
+        "Perceptions of corruption" : 0.085
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059f"),
+        "Overall rank" : 142,
+        "Country or region" : "Comoros",
+        "Score" : 3.973,
+        "GDP per capita" : 0.274,
+        "Social support" : 0.757,
+        "Healthy life expectancy" : 0.505,
+        "Freedom to make life choices" : 0.142,
+        "Generosity" : 0.275,
+        "Perceptions of corruption" : 0.078
+}
+Type "it" for more
+> db.worldhappiness.find({"Overall rank":{$gt:130}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530595"),
+        "Overall rank" : 131,
+        "Country or region" : "Myanmar",
+        "Score" : 4.36,
+        "GDP per capita" : 0.71,
+        "Social support" : 1.181,
+        "Healthy life expectancy" : 0.555,
+        "Freedom to make life choices" : 0.525,
+        "Generosity" : 0.566,
+        "Perceptions of corruption" : 0.172
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530597"),
+        "Overall rank" : 132,
+        "Country or region" : "Chad",
+        "Score" : 4.35,
+        "GDP per capita" : 0.35,
+        "Social support" : 0.766,
+        "Healthy life expectancy" : 0.192,
+        "Freedom to make life choices" : 0.174,
+        "Generosity" : 0.198,
+        "Perceptions of corruption" : 0.078
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530598"),
+        "Overall rank" : 133,
+        "Country or region" : "Ukraine",
+        "Score" : 4.332,
+        "GDP per capita" : 0.82,
+        "Social support" : 1.39,
+        "Healthy life expectancy" : 0.739,
+        "Freedom to make life choices" : 0.178,
+        "Generosity" : 0.187,
+        "Perceptions of corruption" : 0.01
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530599"),
+        "Overall rank" : 134,
+        "Country or region" : "Ethiopia",
+        "Score" : 4.286,
+        "GDP per capita" : 0.336,
+        "Social support" : 1.033,
+        "Healthy life expectancy" : 0.532,
+        "Freedom to make life choices" : 0.344,
+        "Generosity" : 0.209,
+        "Perceptions of corruption" : 0.1
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059a"),
+        "Overall rank" : 136,
+        "Country or region" : "Uganda",
+        "Score" : 4.189,
+        "GDP per capita" : 0.332,
+        "Social support" : 1.069,
+        "Healthy life expectancy" : 0.443,
+        "Freedom to make life choices" : 0.356,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.06
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059b"),
+        "Overall rank" : 138,
+        "Country or region" : "Zambia",
+        "Score" : 4.107,
+        "GDP per capita" : 0.578,
+        "Social support" : 1.058,
+        "Healthy life expectancy" : 0.426,
+        "Freedom to make life choices" : 0.431,
+        "Generosity" : 0.247,
+        "Perceptions of corruption" : 0.087
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059c"),
+        "Overall rank" : 135,
+        "Country or region" : "Swaziland",
+        "Score" : 4.212,
+        "GDP per capita" : 0.811,
+        "Social support" : 1.149,
+        "Healthy life expectancy" : 0,
+        "Freedom to make life choices" : 0.313,
+        "Generosity" : 0.074,
+        "Perceptions of corruption" : 0.135
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059d"),
+        "Overall rank" : 139,
+        "Country or region" : "Togo",
+        "Score" : 4.085,
+        "GDP per capita" : 0.275,
+        "Social support" : 0.572,
+        "Healthy life expectancy" : 0.41,
+        "Freedom to make life choices" : 0.293,
+        "Generosity" : 0.177,
+        "Perceptions of corruption" : 0.085
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059e"),
+        "Overall rank" : 140,
+        "Country or region" : "India",
+        "Score" : 4.015,
+        "GDP per capita" : 0.755,
+        "Social support" : 0.765,
+        "Healthy life expectancy" : 0.588,
+        "Freedom to make life choices" : 0.498,
+        "Generosity" : 0.2,
+        "Perceptions of corruption" : 0.085
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853059f"),
+        "Overall rank" : 142,
+        "Country or region" : "Comoros",
+        "Score" : 3.973,
+        "GDP per capita" : 0.274,
+        "Social support" : 0.757,
+        "Healthy life expectancy" : 0.505,
+        "Freedom to make life choices" : 0.142,
+        "Generosity" : 0.275,
+        "Perceptions of corruption" : 0.078
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a0"),
+        "Overall rank" : 143,
+        "Country or region" : "Madagascar",
+        "Score" : 3.933,
+        "GDP per capita" : 0.274,
+        "Social support" : 0.916,
+        "Healthy life expectancy" : 0.555,
+        "Freedom to make life choices" : 0.148,
+        "Generosity" : 0.169,
+        "Perceptions of corruption" : 0.041
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a1"),
+        "Overall rank" : 144,
+        "Country or region" : "Lesotho",
+        "Score" : 3.802,
+        "GDP per capita" : 0.489,
+        "Social support" : 1.169,
+        "Healthy life expectancy" : 0.168,
+        "Freedom to make life choices" : 0.359,
+        "Generosity" : 0.107,
+        "Perceptions of corruption" : 0.093
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a2"),
+        "Overall rank" : 141,
+        "Country or region" : "Liberia",
+        "Score" : 3.975,
+        "GDP per capita" : 0.073,
+        "Social support" : 0.922,
+        "Healthy life expectancy" : 0.443,
+        "Freedom to make life choices" : 0.37,
+        "Generosity" : 0.233,
+        "Perceptions of corruption" : 0.033
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a3"),
+        "Overall rank" : 145,
+        "Country or region" : "Burundi",
+        "Score" : 3.775,
+        "GDP per capita" : 0.046,
+        "Social support" : 0.447,
+        "Healthy life expectancy" : 0.38,
+        "Freedom to make life choices" : 0.22,
+        "Generosity" : 0.176,
+        "Perceptions of corruption" : 0.18
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a4"),
+        "Overall rank" : 146,
+        "Country or region" : "Zimbabwe",
+        "Score" : 3.663,
+        "GDP per capita" : 0.366,
+        "Social support" : 1.114,
+        "Healthy life expectancy" : 0.433,
+        "Freedom to make life choices" : 0.361,
+        "Generosity" : 0.151,
+        "Perceptions of corruption" : 0.089
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a5"),
+        "Overall rank" : 148,
+        "Country or region" : "Botswana",
+        "Score" : 3.488,
+        "GDP per capita" : 1.041,
+        "Social support" : 1.145,
+        "Healthy life expectancy" : 0.538,
+        "Freedom to make life choices" : 0.455,
+        "Generosity" : 0.025,
+        "Perceptions of corruption" : 0.1
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a6"),
+        "Overall rank" : 149,
+        "Country or region" : "Syria",
+        "Score" : 3.462,
+        "GDP per capita" : 0.619,
+        "Social support" : 0.378,
+        "Healthy life expectancy" : 0.44,
+        "Freedom to make life choices" : 0.013,
+        "Generosity" : 0.331,
+        "Perceptions of corruption" : 0.141
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a7"),
+        "Overall rank" : 151,
+        "Country or region" : "Yemen",
+        "Score" : 3.38,
+        "GDP per capita" : 0.287,
+        "Social support" : 1.163,
+        "Healthy life expectancy" : 0.463,
+        "Freedom to make life choices" : 0.143,
+        "Generosity" : 0.108,
+        "Perceptions of corruption" : 0.077
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a8"),
+        "Overall rank" : 150,
+        "Country or region" : "Malawi",
+        "Score" : 3.41,
+        "GDP per capita" : 0.191,
+        "Social support" : 0.56,
+        "Healthy life expectancy" : 0.495,
+        "Freedom to make life choices" : 0.443,
+        "Generosity" : 0.218,
+        "Perceptions of corruption" : 0.089
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a9"),
+        "Overall rank" : 152,
+        "Country or region" : "Rwanda",
+        "Score" : 3.334,
+        "GDP per capita" : 0.359,
+        "Social support" : 0.711,
+        "Healthy life expectancy" : 0.614,
+        "Freedom to make life choices" : 0.555,
+        "Generosity" : 0.217,
+        "Perceptions of corruption" : 0.411
+}
+6. FIND THE COUNT OF THE COUNTRIES THAT HAVE THE LOWEST RANK
+ 
+ > db.worldhappiness.aggregate({$count:{"Overall rank":{$gt:130}}});
+uncaught exception: Error: command failed: {
+        "ok" : 0,
+        "errmsg" : "the count field must be a non-empty string",
+        "code" : 40156,
+        "codeName" : "Location40156"
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+doassert@src/mongo/shell/assert.js:18:14
+_assertCommandWorked@src/mongo/shell/assert.js:639:17
+assert.commandWorked@src/mongo/shell/assert.js:729:16
+DB.prototype._runAggregate@src/mongo/shell/db.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1058:12
+@(shell):1:1
+> db.worldhappiness.aggregate({$count:{"Overall rank":{$gt:130}}});
+uncaught exception: Error: command failed: {
+        "ok" : 0,
+        "errmsg" : "the count field must be a non-empty string",
+        "code" : 40156,
+        "codeName" : "Location40156"
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+doassert@src/mongo/shell/assert.js:18:14
+_assertCommandWorked@src/mongo/shell/assert.js:639:17
+assert.commandWorked@src/mongo/shell/assert.js:729:16
+DB.prototype._runAggregate@src/mongo/shell/db.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1058:12
+@(shell):1:1
+> db.worldhappiness.count({"Overall rank":{$gt:130}});
+26
+> db.worldhappiness.count({"Overall rank":{$gt:100}});
+56
+> db.worldhappiness.find().pretty()[0];
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+
+7.LIST ALL THE COUNTRIES THAT ARE PRESENT ($group)
+
+ > db.worldhappiness.aggregate([{$group:{_id:"$Country or region"}}])
+{ "_id" : "Malaysia" }
+{ "_id" : "Lithuania" }
+{ "_id" : "Gambia" }
+{ "_id" : "Venezuela" }
+{ "_id" : "Senegal" }
+{ "_id" : "North Macedonia" }
+{ "_id" : "Qatar" }
+{ "_id" : "Northern Cyprus" }
+{ "_id" : "Namibia" }
+{ "_id" : "Iceland" }
+{ "_id" : "Yemen" }
+{ "_id" : "Mongolia" }
+{ "_id" : "Laos" }
+{ "_id" : "Guinea" }
+{ "_id" : "Turkmenistan" }
+{ "_id" : "Germany" }
+{ "_id" : "Vietnam" }
+{ "_id" : "United States" }
+{ "_id" : "Kenya" }
+{ "_id" : "Czech Republic" }
+Type "it" for more
+ 
+8.USE INDEXING TO FETCH DATA
+
+> db.worldhappiness.find().pretty()[0]
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+
+
+9.FIND THE COUNTRY WITH THE LEAST CORRUPTION 
+ > db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":1}}])
+{ "_id" : ObjectId("6078161f592bd5cd4853055a"), "Overall rank" : 71, "Country or region" : "Moldova", "Score" : 5.529, "GDP per capita" : 0.685, "Social support" : 1.328, "Healthy life expectancy" : 0.739, "Freedom to make life choices" : 0.245, "Generosity" : 0.181, "Perceptions of corruption" : 0 }
+{ "_id" : ObjectId("6078161f592bd5cd48530577"), "Overall rank" : 97, "Country or region" : "Bulgaria", "Score" : 5.011, "GDP per capita" : 1.092, "Social support" : 1.513, "Healthy life expectancy" : 0.815, "Freedom to make life choices" : 0.311, "Generosity" : 0.081, "Perceptions of corruption" : 0.004 }
+{ "_id" : ObjectId("6078161f592bd5cd48530543"), "Overall rank" : 48, "Country or region" : "Romania", "Score" : 6.07, "GDP per capita" : 1.162, "Social support" : 1.232, "Healthy life expectancy" : 0.825, "Freedom to make life choices" : 0.462, "Generosity" : 0.083, "Perceptions of corruption" : 0.005 }
+{ "_id" : ObjectId("6078161f592bd5cd48530541"), "Overall rank" : 46, "Country or region" : "Kosovo", "Score" : 6.1, "GDP per capita" : 0.882, "Social support" : 1.232, "Healthy life expectancy" : 0.758, "Freedom to make life choices" : 0.489, "Generosity" : 0.262, "Perceptions of corruption" : 0.006 }
+{ "_id" : ObjectId("6078161f592bd5cd48530561"), "Overall rank" : 78, "Country or region" : "Bosnia and Herzegovina", "Score" : 5.386, "GDP per capita" : 0.945, "Social support" : 1.212, "Healthy life expectancy" : 0.845, "Freedom to make life choices" : 0.212, "Generosity" : 0.263, "Perceptions of corruption" : 0.006 }
+{ "_id" : ObjectId("6078161f592bd5cd48530598"), "Overall rank" : 133, "Country or region" : "Ukraine", "Score" : 4.332, "GDP per capita" : 0.82, "Social support" : 1.39, "Healthy life expectancy" : 0.739, "Freedom to make life choices" : 0.178, "Generosity" : 0.187, "Perceptions of corruption" : 0.01 }
+{ "_id" : ObjectId("6078161f592bd5cd48530538"), "Overall rank" : 38, "Country or region" : "Slovakia", "Score" : 6.198, "GDP per capita" : 1.246, "Social support" : 1.504, "Healthy life expectancy" : 0.881, "Freedom to make life choices" : 0.334, "Generosity" : 0.121, "Perceptions of corruption" : 0.014 }
+{ "_id" : ObjectId("6078161f592bd5cd4853053a"), "Overall rank" : 39, "Country or region" : "Trinidad & Tobago", "Score" : 6.192, "GDP per capita" : 1.231, "Social support" : 1.477, "Healthy life expectancy" : 0.713, "Freedom to make life choices" : 0.489, "Generosity" : 0.185, "Perceptions of corruption" : 0.016 }
+{ "_id" : ObjectId("6078161f592bd5cd48530552"), "Overall rank" : 62, "Country or region" : "Hungary", "Score" : 5.758, "GDP per capita" : 1.201, "Social support" : 1.41, "Healthy life expectancy" : 0.828, "Freedom to make life choices" : 0.199, "Generosity" : 0.081, "Perceptions of corruption" : 0.02 }
+{ "_id" : ObjectId("6078161f592bd5cd4853055d"), "Overall rank" : 75, "Country or region" : "Croatia", "Score" : 5.432, "GDP per capita" : 1.155, "Social support" : 1.266, "Healthy life expectancy" : 0.914, "Freedom to make life choices" : 0.296, "Generosity" : 0.119, "Perceptions of corruption" : 0.022 }
+{ "_id" : ObjectId("6078161f592bd5cd4853056a"), "Overall rank" : 86, "Country or region" : "Kyrgyzstan", "Score" : 5.261, "GDP per capita" : 0.551, "Social support" : 1.438, "Healthy life expectancy" : 0.723, "Freedom to make life choices" : 0.508, "Generosity" : 0.3, "Perceptions of corruption" : 0.023 }
+{ "_id" : ObjectId("6078161f592bd5cd48530562"), "Overall rank" : 80, "Country or region" : "Malaysia", "Score" : 5.339, "GDP per capita" : 1.221, "Social support" : 1.171, "Healthy life expectancy" : 0.828, "Freedom to make life choices" : 0.508, "Generosity" : 0.26, "Perceptions of corruption" : 0.024 }
+{ "_id" : ObjectId("6078161f592bd5cd48530555"), "Overall rank" : 66, "Country or region" : "Portugal", "Score" : 5.693, "GDP per capita" : 1.221, "Social support" : 1.431, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.508, "Generosity" : 0.047, "Perceptions of corruption" : 0.025 }
+{ "_id" : ObjectId("6078161f592bd5cd485305ac"), "Overall rank" : 154, "Country or region" : "Afghanistan", "Score" : 3.203, "GDP per capita" : 0.35, "Social support" : 0.517, "Healthy life expectancy" : 0.361, "Freedom to make life choices" : 0, "Generosity" : 0.158, "Perceptions of corruption" : 0.025 }
+{ "_id" : ObjectId("6078161f592bd5cd48530554"), "Overall rank" : 65, "Country or region" : "Peru", "Score" : 5.697, "GDP per capita" : 0.96, "Social support" : 1.274, "Healthy life expectancy" : 0.854, "Freedom to make life choices" : 0.455, "Generosity" : 0.083, "Perceptions of corruption" : 0.027 }
+{ "_id" : ObjectId("6078161f592bd5cd4853056e"), "Overall rank" : 91, "Country or region" : "Lebanon", "Score" : 5.197, "GDP per capita" : 0.987, "Social support" : 1.224, "Healthy life expectancy" : 0.815, "Freedom to make life choices" : 0.216, "Generosity" : 0.166, "Perceptions of corruption" : 0.027 }
+{ "_id" : ObjectId("6078161f592bd5cd4853058f"), "Overall rank" : 107, "Country or region" : "Albania", "Score" : 4.719, "GDP per capita" : 0.947, "Social support" : 0.848, "Healthy life expectancy" : 0.874, "Freedom to make life choices" : 0.383, "Generosity" : 0.178, "Perceptions of corruption" : 0.027 }
+{ "_id" : ObjectId("6078161f592bd5cd48530549"), "Overall rank" : 52, "Country or region" : "Thailand", "Score" : 6.008, "GDP per capita" : 1.05, "Social support" : 1.409, "Healthy life expectancy" : 0.828, "Freedom to make life choices" : 0.557, "Generosity" : 0.359, "Perceptions of corruption" : 0.028 }
+{ "_id" : ObjectId("6078161f592bd5cd4853054a"), "Overall rank" : 56, "Country or region" : "Jamaica", "Score" : 5.89, "GDP per capita" : 0.831, "Social support" : 1.478, "Healthy life expectancy" : 0.831, "Freedom to make life choices" : 0.49, "Generosity" : 0.107, "Perceptions of corruption" : 0.028 }
+{ "_id" : ObjectId("6078161f592bd5cd48530569"), "Overall rank" : 87, "Country or region" : "Turkmenistan", "Score" : 5.247, "GDP per capita" : 1.052, "Social support" : 1.538, "Healthy life expectancy" : 0.657, "Freedom to make life choices" : 0.394, "Generosity" : 0.244, "Perceptions of corruption" : 0.028 }
+Type "it" for more
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":1}}]).pretty()[:5]
+uncaught exception: SyntaxError: expected expression, got ':' :
+@(shell):1:80
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":1}}]).pretty()[0]
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":1}}]).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd4853055a"),
+        "Overall rank" : 71,
+        "Country or region" : "Moldova",
+        "Score" : 5.529,
+        "GDP per capita" : 0.685,
+        "Social support" : 1.328,
+        "Healthy life expectancy" : 0.739,
+        "Freedom to make life choices" : 0.245,
+        "Generosity" : 0.181,
+        "Perceptions of corruption" : 0
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530577"),
+        "Overall rank" : 97,
+        "Country or region" : "Bulgaria",
+        "Score" : 5.011,
+        "GDP per capita" : 1.092,
+        "Social support" : 1.513,
+        "Healthy life expectancy" : 0.815,
+        "Freedom to make life choices" : 0.311,
+        "Generosity" : 0.081,
+        "Perceptions of corruption" : 0.004
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530543"),
+        "Overall rank" : 48,
+        "Country or region" : "Romania",
+        "Score" : 6.07,
+        "GDP per capita" : 1.162,
+        "Social support" : 1.232,
+        "Healthy life expectancy" : 0.825,
+        "Freedom to make life choices" : 0.462,
+        "Generosity" : 0.083,
+        "Perceptions of corruption" : 0.005
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530541"),
+        "Overall rank" : 46,
+        "Country or region" : "Kosovo",
+        "Score" : 6.1,
+        "GDP per capita" : 0.882,
+        "Social support" : 1.232,
+        "Healthy life expectancy" : 0.758,
+        "Freedom to make life choices" : 0.489,
+        "Generosity" : 0.262,
+        "Perceptions of corruption" : 0.006
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530561"),
+        "Overall rank" : 78,
+        "Country or region" : "Bosnia and Herzegovina",
+        "Score" : 5.386,
+        "GDP per capita" : 0.945,
+        "Social support" : 1.212,
+        "Healthy life expectancy" : 0.845,
+        "Freedom to make life choices" : 0.212,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.006
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530598"),
+        "Overall rank" : 133,
+        "Country or region" : "Ukraine",
+        "Score" : 4.332,
+        "GDP per capita" : 0.82,
+        "Social support" : 1.39,
+        "Healthy life expectancy" : 0.739,
+        "Freedom to make life choices" : 0.178,
+        "Generosity" : 0.187,
+        "Perceptions of corruption" : 0.01
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530538"),
+        "Overall rank" : 38,
+        "Country or region" : "Slovakia",
+        "Score" : 6.198,
+        "GDP per capita" : 1.246,
+        "Social support" : 1.504,
+        "Healthy life expectancy" : 0.881,
+        "Freedom to make life choices" : 0.334,
+        "Generosity" : 0.121,
+        "Perceptions of corruption" : 0.014
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853053a"),
+        "Overall rank" : 39,
+        "Country or region" : "Trinidad & Tobago",
+        "Score" : 6.192,
+        "GDP per capita" : 1.231,
+        "Social support" : 1.477,
+        "Healthy life expectancy" : 0.713,
+        "Freedom to make life choices" : 0.489,
+        "Generosity" : 0.185,
+        "Perceptions of corruption" : 0.016
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530552"),
+        "Overall rank" : 62,
+        "Country or region" : "Hungary",
+        "Score" : 5.758,
+        "GDP per capita" : 1.201,
+        "Social support" : 1.41,
+        "Healthy life expectancy" : 0.828,
+        "Freedom to make life choices" : 0.199,
+        "Generosity" : 0.081,
+        "Perceptions of corruption" : 0.02
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853055d"),
+        "Overall rank" : 75,
+        "Country or region" : "Croatia",
+        "Score" : 5.432,
+        "GDP per capita" : 1.155,
+        "Social support" : 1.266,
+        "Healthy life expectancy" : 0.914,
+        "Freedom to make life choices" : 0.296,
+        "Generosity" : 0.119,
+        "Perceptions of corruption" : 0.022
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853056a"),
+        "Overall rank" : 86,
+        "Country or region" : "Kyrgyzstan",
+        "Score" : 5.261,
+        "GDP per capita" : 0.551,
+        "Social support" : 1.438,
+        "Healthy life expectancy" : 0.723,
+        "Freedom to make life choices" : 0.508,
+        "Generosity" : 0.3,
+        "Perceptions of corruption" : 0.023
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530562"),
+        "Overall rank" : 80,
+        "Country or region" : "Malaysia",
+        "Score" : 5.339,
+        "GDP per capita" : 1.221,
+        "Social support" : 1.171,
+        "Healthy life expectancy" : 0.828,
+        "Freedom to make life choices" : 0.508,
+        "Generosity" : 0.26,
+        "Perceptions of corruption" : 0.024
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530555"),
+        "Overall rank" : 66,
+        "Country or region" : "Portugal",
+        "Score" : 5.693,
+        "GDP per capita" : 1.221,
+        "Social support" : 1.431,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.508,
+        "Generosity" : 0.047,
+        "Perceptions of corruption" : 0.025
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ac"),
+        "Overall rank" : 154,
+        "Country or region" : "Afghanistan",
+        "Score" : 3.203,
+        "GDP per capita" : 0.35,
+        "Social support" : 0.517,
+        "Healthy life expectancy" : 0.361,
+        "Freedom to make life choices" : 0,
+        "Generosity" : 0.158,
+        "Perceptions of corruption" : 0.025
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530554"),
+        "Overall rank" : 65,
+        "Country or region" : "Peru",
+        "Score" : 5.697,
+        "GDP per capita" : 0.96,
+        "Social support" : 1.274,
+        "Healthy life expectancy" : 0.854,
+        "Freedom to make life choices" : 0.455,
+        "Generosity" : 0.083,
+        "Perceptions of corruption" : 0.027
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853056e"),
+        "Overall rank" : 91,
+        "Country or region" : "Lebanon",
+        "Score" : 5.197,
+        "GDP per capita" : 0.987,
+        "Social support" : 1.224,
+        "Healthy life expectancy" : 0.815,
+        "Freedom to make life choices" : 0.216,
+        "Generosity" : 0.166,
+        "Perceptions of corruption" : 0.027
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853056e"),
+        "Overall rank" : 91,
+        "Country or region" : "Lebanon",
+        "Score" : 5.197,
+        "GDP per capita" : 0.987,
+        "Social support" : 1.224,
+        "Healthy life expectancy" : 0.815,
+        "Freedom to make life choices" : 0.216,
+        "Generosity" : 0.166,
+        "Perceptions of corruption" : 0.027
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853058f"),
+        "Overall rank" : 107,
+        "Country or region" : "Albania",
+        "Score" : 4.719,
+        "GDP per capita" : 0.947,
+        "Social support" : 0.848,
+        "Healthy life expectancy" : 0.874,
+        "Freedom to make life choices" : 0.383,
+        "Generosity" : 0.178,
+        "Perceptions of corruption" : 0.027
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530549"),
+        "Overall rank" : 52,
+        "Country or region" : "Thailand",
+        "Score" : 6.008,
+        "GDP per capita" : 1.05,
+        "Social support" : 1.409,
+        "Healthy life expectancy" : 0.828,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.359,
+        "Perceptions of corruption" : 0.028
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853054a"),
+        "Overall rank" : 56,
+        "Country or region" : "Jamaica",
+        "Score" : 5.89,
+        "GDP per capita" : 0.831,
+        "Social support" : 1.478,
+        "Healthy life expectancy" : 0.831,
+        "Freedom to make life choices" : 0.49,
+        "Generosity" : 0.107,
+        "Perceptions of corruption" : 0.028
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530569"),
+        "Overall rank" : 87,
+        "Country or region" : "Turkmenistan",
+        "Score" : 5.247,
+        "GDP per capita" : 1.052,
+        "Social support" : 1.538,
+        "Healthy life expectancy" : 0.657,
+        "Freedom to make life choices" : 0.394,
+        "Generosity" : 0.244,
+        "Perceptions of corruption" : 0.028
+}
+
+find country with highest corruption 
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":1}}])[0]
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":-1}}])
+{ "_id" : ObjectId("6078161f592bd5cd4853052f"), "Overall rank" : 34, "Country or region" : "Singapore", "Score" : 6.262, "GDP per capita" : 1.572, "Social support" : 1.463, "Healthy life expectancy" : 1.141, "Freedom to make life choices" : 0.556, "Generosity" : 0.271, "Perceptions of corruption" : 0.453 }
+{ "_id" : ObjectId("6078161f592bd5cd485305a9"), "Overall rank" : 152, "Country or region" : "Rwanda", "Score" : 3.334, "GDP per capita" : 0.359, "Social support" : 0.711, "Healthy life expectancy" : 0.614, "Freedom to make life choices" : 0.555, "Generosity" : 0.217, "Perceptions of corruption" : 0.411 }
+{ "_id" : ObjectId("6078161f592bd5cd48530515"), "Overall rank" : 2, "Country or region" : "Denmark", "Score" : 7.6, "GDP per capita" : 1.383, "Social support" : 1.573, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.592, "Generosity" : 0.252, "Perceptions of corruption" : 0.41 }
+{ "_id" : ObjectId("6078161f592bd5cd48530514"), "Overall rank" : 1, "Country or region" : "Finland", "Score" : 7.769, "GDP per capita" : 1.34, "Social support" : 1.587, "Healthy life expectancy" : 0.986, "Freedom to make life choices" : 0.596, "Generosity" : 0.153, "Perceptions of corruption" : 0.393 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051b"), "Overall rank" : 8, "Country or region" : "New Zealand", "Score" : 7.307, "GDP per capita" : 1.303, "Social support" : 1.557, "Healthy life expectancy" : 1.026, "Freedom to make life choices" : 0.585, "Generosity" : 0.33, "Perceptions of corruption" : 0.38 }
+{ "_id" : ObjectId("6078161f592bd5cd48530519"), "Overall rank" : 7, "Country or region" : "Sweden", "Score" : 7.343, "GDP per capita" : 1.387, "Social support" : 1.487, "Healthy life expectancy" : 1.009, "Freedom to make life choices" : 0.574, "Generosity" : 0.267, "Perceptions of corruption" : 0.373 }
+{ "_id" : ObjectId("6078161f592bd5cd48530517"), "Overall rank" : 6, "Country or region" : "Switzerland", "Score" : 7.48, "GDP per capita" : 1.452, "Social support" : 1.526, "Healthy life expectancy" : 1.052, "Freedom to make life choices" : 0.572, "Generosity" : 0.263, "Perceptions of corruption" : 0.343 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051c"), "Overall rank" : 3, "Country or region" : "Norway", "Score" : 7.554, "GDP per capita" : 1.488, "Social support" : 1.582, "Healthy life expectancy" : 1.028, "Freedom to make life choices" : 0.603, "Generosity" : 0.271, "Perceptions of corruption" : 0.341 }
+{ "_id" : ObjectId("6078161f592bd5cd48530531"), "Overall rank" : 14, "Country or region" : "Luxembourg", "Score" : 7.09, "GDP per capita" : 1.609, "Social support" : 1.479, "Healthy life expectancy" : 1.012, "Freedom to make life choices" : 0.526, "Generosity" : 0.194, "Perceptions of corruption" : 0.316 }
+{ "_id" : ObjectId("6078161f592bd5cd48530533"), "Overall rank" : 16, "Country or region" : "Ireland", "Score" : 7.021, "GDP per capita" : 1.499, "Social support" : 1.553, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.516, "Generosity" : 0.298, "Perceptions of corruption" : 0.31 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051a"), "Overall rank" : 9, "Country or region" : "Canada", "Score" : 7.278, "GDP per capita" : 1.365, "Social support" : 1.505, "Healthy life expectancy" : 1.039, "Freedom to make life choices" : 0.584, "Generosity" : 0.285, "Perceptions of corruption" : 0.308 }
+{ "_id" : ObjectId("6078161f592bd5cd48530518"), "Overall rank" : 5, "Country or region" : "Netherlands", "Score" : 7.488, "GDP per capita" : 1.396, "Social support" : 1.522, "Healthy life expectancy" : 0.999, "Freedom to make life choices" : 0.557, "Generosity" : 0.322, "Perceptions of corruption" : 0.298 }
+{ "_id" : ObjectId("6078161f592bd5cd48530534"), "Overall rank" : 11, "Country or region" : "Australia", "Score" : 7.228, "GDP per capita" : 1.372, "Social support" : 1.548, "Healthy life expectancy" : 1.036, "Freedom to make life choices" : 0.557, "Generosity" : 0.332, "Perceptions of corruption" : 0.29 }
+{ "_id" : ObjectId("6078161f592bd5cd4853055e"), "Overall rank" : 76, "Country or region" : "Hong Kong", "Score" : 5.43, "GDP per capita" : 1.438, "Social support" : 1.277, "Healthy life expectancy" : 1.122, "Freedom to make life choices" : 0.44, "Generosity" : 0.258, "Perceptions of corruption" : 0.287 }
+{ "_id" : ObjectId("6078161f592bd5cd48530527"), "Overall rank" : 15, "Country or region" : "United Kingdom", "Score" : 7.054, "GDP per capita" : 1.333, "Social support" : 1.538, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.45, "Generosity" : 0.348, "Perceptions of corruption" : 0.278 }
+{ "_id" : ObjectId("6078161f592bd5cd4853057c"), "Overall rank" : 112, "Country or region" : "Somalia", "Score" : 4.668, "GDP per capita" : 0, "Social support" : 0.698, "Healthy life expectancy" : 0.268, "Freedom to make life choices" : 0.559, "Generosity" : 0.243, "Perceptions of corruption" : 0.27 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051d"), "Overall rank" : 17, "Country or region" : "Germany", "Score" : 6.985, "GDP per capita" : 1.373, "Social support" : 1.454, "Healthy life expectancy" : 0.987, "Freedom to make life choices" : 0.495, "Generosity" : 0.261, "Perceptions of corruption" : 0.265 }
+{ "_id" : ObjectId("6078161f592bd5cd4853053c"), "Overall rank" : 41, "Country or region" : "Uzbekistan", "Score" : 6.174, "GDP per capita" : 0.745, "Social support" : 1.529, "Healthy life expectancy" : 0.756, "Freedom to make life choices" : 0.631, "Generosity" : 0.322, "Perceptions of corruption" : 0.24 }
+{ "_id" : ObjectId("6078161f592bd5cd48530532"), "Overall rank" : 10, "Country or region" : "Austria", "Score" : 7.246, "GDP per capita" : 1.376, "Social support" : 1.475, "Healthy life expectancy" : 1.016, "Freedom to make life choices" : 0.532, "Generosity" : 0.244, "Perceptions of corruption" : 0.226 }
+{ "_id" : ObjectId("6078161f592bd5cd4853051e"), "Overall rank" : 18, "Country or region" : "Belgium", "Score" : 6.923, "GDP per capita" : 1.356, "Social support" : 1.504, "Healthy life expectancy" : 0.986, "Freedom to make life choices" : 0.473, "Generosity" : 0.16, "Perceptions of corruption" : 0.21 }
+Type "it" for more
+> db.worldhappiness.aggregate([{$sort:{"Perceptions of corruption":-1}}]).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052f"),
+        "Overall rank" : 34,
+        "Country or region" : "Singapore",
+        "Score" : 6.262,
+        "GDP per capita" : 1.572,
+        "Social support" : 1.463,
+        "Healthy life expectancy" : 1.141,
+        "Freedom to make life choices" : 0.556,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.453
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a9"),
+        "Overall rank" : 152,
+        "Country or region" : "Rwanda",
+        "Score" : 3.334,
+        "GDP per capita" : 0.359,
+        "Social support" : 0.711,
+        "Healthy life expectancy" : 0.614,
+        "Freedom to make life choices" : 0.555,
+        "Generosity" : 0.217,
+        "Perceptions of corruption" : 0.411
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530519"),
+        "Overall rank" : 7,
+        "Country or region" : "Sweden",
+        "Score" : 7.343,
+        "GDP per capita" : 1.387,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 1.009,
+        "Freedom to make life choices" : 0.574,
+        "Generosity" : 0.267,
+        "Perceptions of corruption" : 0.373
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530531"),
+        "Overall rank" : 14,
+        "Country or region" : "Luxembourg",
+        "Score" : 7.09,
+        "GDP per capita" : 1.609,
+        "Social support" : 1.479,
+        "Healthy life expectancy" : 1.012,
+        "Freedom to make life choices" : 0.526,
+        "Generosity" : 0.194,
+        "Perceptions of corruption" : 0.316
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530533"),
+        "Overall rank" : 16,
+        "Country or region" : "Ireland",
+        "Score" : 7.021,
+        "GDP per capita" : 1.499,
+        "Social support" : 1.553,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.516,
+        "Generosity" : 0.298,
+        "Perceptions of corruption" : 0.31
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530534"),
+        "Overall rank" : 11,
+        "Country or region" : "Australia",
+        "Score" : 7.228,
+        "GDP per capita" : 1.372,
+        "Social support" : 1.548,
+        "Healthy life expectancy" : 1.036,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.332,
+        "Perceptions of corruption" : 0.29
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853055e"),
+        "Overall rank" : 76,
+        "Country or region" : "Hong Kong",
+        "Score" : 5.43,
+        "GDP per capita" : 1.438,
+        "Social support" : 1.277,
+        "Healthy life expectancy" : 1.122,
+        "Freedom to make life choices" : 0.44,
+        "Generosity" : 0.258,
+        "Perceptions of corruption" : 0.287
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530527"),
+        "Overall rank" : 15,
+        "Country or region" : "United Kingdom",
+        "Score" : 7.054,
+        "GDP per capita" : 1.333,
+        "Social support" : 1.538,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.45,
+        "Generosity" : 0.348,
+        "Perceptions of corruption" : 0.278
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853057c"),
+        "Overall rank" : 112,
+        "Country or region" : "Somalia",
+        "Score" : 4.668,
+        "GDP per capita" : 0,
+        "Social support" : 0.698,
+        "Healthy life expectancy" : 0.268,
+        "Freedom to make life choices" : 0.559,
+        "Generosity" : 0.243,
+        "Perceptions of corruption" : 0.27
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051d"),
+        "Overall rank" : 17,
+        "Country or region" : "Germany",
+        "Score" : 6.985,
+        "GDP per capita" : 1.373,
+        "Social support" : 1.454,
+        "Healthy life expectancy" : 0.987,
+        "Freedom to make life choices" : 0.495,
+        "Generosity" : 0.261,
+        "Perceptions of corruption" : 0.265
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853053c"),
+        "Overall rank" : 41,
+        "Country or region" : "Uzbekistan",
+        "Score" : 6.174,
+        "GDP per capita" : 0.745,
+        "Social support" : 1.529,
+        "Healthy life expectancy" : 0.756,
+        "Freedom to make life choices" : 0.631,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.24
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530532"),
+        "Overall rank" : 10,
+        "Country or region" : "Austria",
+        "Score" : 7.246,
+        "GDP per capita" : 1.376,
+        "Social support" : 1.475,
+        "Healthy life expectancy" : 1.016,
+        "Freedom to make life choices" : 0.532,
+        "Generosity" : 0.244,
+        "Perceptions of corruption" : 0.226
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051e"),
+        "Overall rank" : 18,
+        "Country or region" : "Belgium",
+        "Score" : 6.923,
+        "GDP per capita" : 1.356,
+        "Social support" : 1.504,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.473,
+        "Generosity" : 0.16,
+        "Perceptions of corruption" : 0.21
+}
+Type "it" for more
+
+11 DISPLAY DETAILS USING PROJECT 
+
+
+> db.worldhappiness.aggregate([{$project:{_id:0,"Country or region":1}}])
+{ "Country or region" : "Finland" }
+{ "Country or region" : "Denmark" }
+{ "Country or region" : "Iceland" }
+{ "Country or region" : "Switzerland" }
+{ "Country or region" : "Netherlands" }
+{ "Country or region" : "Sweden" }
+{ "Country or region" : "Canada" }
+{ "Country or region" : "New Zealand" }
+{ "Country or region" : "Norway" }
+{ "Country or region" : "Germany" }
+{ "Country or region" : "Belgium" }
+{ "Country or region" : "United States" }
+{ "Country or region" : "Czech Republic" }
+{ "Country or region" : "United Arab Emirates" }
+{ "Country or region" : "Malta" }
+{ "Country or region" : "Mexico" }
+{ "Country or region" : "France" }
+{ "Country or region" : "Taiwan" }
+{ "Country or region" : "Chile" }
+{ "Country or region" : "United Kingdom" }
+Type "it" for more
+
+> db.worldhappiness.aggregate([{$project:{_id:0,"Country or region":1,"GDP per capita":1}}])
+{ "Country or region" : "Finland", "GDP per capita" : 1.34 }
+{ "Country or region" : "Denmark", "GDP per capita" : 1.383 }
+{ "Country or region" : "Iceland", "GDP per capita" : 1.38 }
+{ "Country or region" : "Switzerland", "GDP per capita" : 1.452 }
+{ "Country or region" : "Netherlands", "GDP per capita" : 1.396 }
+{ "Country or region" : "Sweden", "GDP per capita" : 1.387 }
+{ "Country or region" : "Canada", "GDP per capita" : 1.365 }
+{ "Country or region" : "New Zealand", "GDP per capita" : 1.303 }
+{ "Country or region" : "Norway", "GDP per capita" : 1.488 }
+{ "Country or region" : "Germany", "GDP per capita" : 1.373 }
+{ "Country or region" : "Belgium", "GDP per capita" : 1.356 }
+{ "Country or region" : "United States", "GDP per capita" : 1.433 }
+{ "Country or region" : "Czech Republic", "GDP per capita" : 1.269 }
+{ "Country or region" : "United Arab Emirates", "GDP per capita" : 1.503 }
+{ "Country or region" : "Malta", "GDP per capita" : 1.3 }
+{ "Country or region" : "Mexico", "GDP per capita" : 1.07 }
+{ "Country or region" : "France", "GDP per capita" : 1.324 }
+{ "Country or region" : "Taiwan", "GDP per capita" : 1.368 }
+{ "Country or region" : "Chile", "GDP per capita" : 1.159 }
+{ "Country or region" : "United Kingdom", "GDP per capita" : 1.333 }
+Type "it" for more
+> db.worldhappiness.aggregate([{$project:{_id:0,"Country or region":1,"GDP per capita":1}},{$sort:{"GDP per capita":-1}}])
+{ "Country or region" : "Qatar", "GDP per capita" : 1.684 }
+{ "Country or region" : "Luxembourg", "GDP per capita" : 1.609 }
+{ "Country or region" : "Singapore", "GDP per capita" : 1.572 }
+{ "Country or region" : "United Arab Emirates", "GDP per capita" : 1.503 }
+{ "Country or region" : "Kuwait", "GDP per capita" : 1.5 }
+{ "Country or region" : "Ireland", "GDP per capita" : 1.499 }
+{ "Country or region" : "Norway", "GDP per capita" : 1.488 }
+{ "Country or region" : "Switzerland", "GDP per capita" : 1.452 }
+{ "Country or region" : "Hong Kong", "GDP per capita" : 1.438 }
+{ "Country or region" : "United States", "GDP per capita" : 1.433 }
+{ "Country or region" : "Saudi Arabia", "GDP per capita" : 1.403 }
+{ "Country or region" : "Netherlands", "GDP per capita" : 1.396 }
+{ "Country or region" : "Sweden", "GDP per capita" : 1.387 }
+{ "Country or region" : "Denmark", "GDP per capita" : 1.383 }
+{ "Country or region" : "Iceland", "GDP per capita" : 1.38 }
+{ "Country or region" : "Austria", "GDP per capita" : 1.376 }
+{ "Country or region" : "Germany", "GDP per capita" : 1.373 }
+{ "Country or region" : "Australia", "GDP per capita" : 1.372 }
+{ "Country or region" : "Taiwan", "GDP per capita" : 1.368 }
+{ db.worldhappiness.aggregate([{$project:{_id:0,"Country or region":1,"GDP per capita":1}},{$sort:{"GDP per capita":-1}}])
+{ "Country or region" : "Qatar", "GDP per capita" : 1.684 } region":1,"GDP per capita":1}},{$sort:{"GDP per capita":-1}}])
+{ "Country or region" : "Luxembourg", "GDP per capita" : 1.609 }on":1,"GDP per capita":1}},{$sort:{"GDP per capita":-1}}])
+{ "Country or region" : "Singapore", "GDP per capita" : 1.572 }
+{ "Country or region" : "United Arab Emirates", "GDP per capita" : 1.503 }
+{ "Country or region" : "Kuwait", "GDP per capita" : 1.5 }
+{ "Country or region" : "Ireland", "GDP per capita" : 1.499 }
+{ "Country or region" : "Norway", "GDP per capita" : 1.488 }
+{ "Country or region" : "Switzerland", "GDP per capita" : 1.452 }
+{ "Country or region" : "Hong Kong", "GDP per capita" : 1.438 }
+{ "Country or region" : "United States", "GDP per capita" : 1.433 }
+{ "Country or region" : "Saudi Arabia", "GDP per capita" : 1.403 }
+{ "Country or region" : "Netherlands", "GDP per capita" : 1.396 }
+{ "Country or region" : "Sweden", "GDP per capita" : 1.387 }
+{ "Country or region" : "Denmark", "GDP per capita" : 1.383 }
+{ "Country or region" : "Iceland", "GDP per capita" : 1.38 }
+{ "Country or region" : "Austria", "GDP per capita" : 1.376 }
+{ "Country or region" : "Germany", "GDP per capita" : 1.373 }
+{ "Country or region" : "Australia", "GDP per capita" : 1.372 }
+{ "Country or region" : "Taiwan", "GDP per capita" : 1.368 }
+{ "Country or region" : "Canada", "GDP per capita" : 1.365 }
+Type "it" for more
+
+12 FIND THE MOST HAPPIEST COUNTRY (OVERALL SCORE==1 )
+
+
+> db.worldhappiness.find({"Overall rank":{$eq:1}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+
+13 GIVE THE DETAILS OF THE COUNTRIES OTHER THAN THE COUNTRY WITH THE HIGHEST OVERALL SCORE
+
+> db.worldhappiness.find({"Overall rank":{$ne:1}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530519"),
+        "Overall rank" : 7,
+        "Country or region" : "Sweden",
+        "Score" : 7.343,
+        "GDP per capita" : 1.387,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 1.009,
+        "Freedom to make life choices" : 0.574,
+        "Generosity" : 0.267,
+        "Perceptions of corruption" : 0.373
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051d"),
+        "Overall rank" : 17,
+        "Country or region" : "Germany",
+        "Score" : 6.985,
+        "GDP per capita" : 1.373,
+        "Social support" : 1.454,
+        "Healthy life expectancy" : 0.987,
+        "Freedom to make life choices" : 0.495,
+        "Generosity" : 0.261,
+        "Perceptions of corruption" : 0.265
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051e"),
+        "Overall rank" : 18,
+        "Country or region" : "Belgium",
+        "Score" : 6.923,
+        "GDP per capita" : 1.356,
+        "Social support" : 1.504,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.473,
+        "Generosity" : 0.16,
+        "Perceptions of corruption" : 0.21
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051f"),
+        "Overall rank" : 19,
+        "Country or region" : "United States",
+        "Score" : 6.892,
+        "GDP per capita" : 1.433,
+        "Social support" : 1.457,
+        "Healthy life expectancy" : 0.874,
+        "Freedom to make life choices" : 0.454,
+        "Generosity" : 0.28,
+        "Perceptions of corruption" : 0.128
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530520"),
+        "Overall rank" : 20,
+        "Country or region" : "Czech Republic",
+        "Score" : 6.852,
+        "GDP per capita" : 1.269,
+        "Social support" : 1.487,
+        "Healthy life expectancy" : 0.92,
+        "Freedom to make life choices" : 0.457,
+        "Generosity" : 0.046,
+        "Perceptions of corruption" : 0.036
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530521"),
+        "Overall rank" : 21,
+        "Country or region" : "United Arab Emirates",
+        "Score" : 6.825,
+        "GDP per capita" : 1.503,
+        "Social support" : 1.31,
+        "Healthy life expectancy" : 0.825,
+        "Freedom to make life choices" : 0.598,
+        "Generosity" : 0.262,
+        "Perceptions of corruption" : 0.182
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530522"),
+        "Overall rank" : 22,
+        "Country or region" : "Malta",
+        "Score" : 6.726,
+        "GDP per capita" : 1.3,
+        "Social support" : 1.52,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.564,
+        "Generosity" : 0.375,
+        "Perceptions of corruption" : 0.151
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530523"),
+        "Overall rank" : 23,
+        "Country or region" : "Mexico",
+        "Score" : 6.595,
+        "GDP per capita" : 1.07,
+        "Social support" : 1.323,
+        "Healthy life expectancy" : 0.861,
+        "Freedom to make life choices" : 0.433,
+        "Generosity" : 0.074,
+        "Perceptions of corruption" : 0.073
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530524"),
+        "Overall rank" : 24,
+        "Country or region" : "France",
+        "Score" : 6.592,
+        "GDP per capita" : 1.324,
+        "Social support" : 1.472,
+        "Healthy life expectancy" : 1.045,
+        "Freedom to make life choices" : 0.436,
+        "Generosity" : 0.111,
+        "Perceptions of corruption" : 0.183
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530525"),
+        "Overall rank" : 25,
+        "Country or region" : "Taiwan",
+        "Score" : 6.446,
+        "GDP per capita" : 1.368,
+        "Social support" : 1.43,
+        "Healthy life expectancy" : 0.914,
+        "Freedom to make life choices" : 0.351,
+        "Generosity" : 0.242,
+        "Perceptions of corruption" : 0.097
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530526"),
+        "Overall rank" : 26,
+        "Country or region" : "Chile",
+        "Score" : 6.444,
+        "GDP per capita" : 1.159,
+        "Social support" : 1.369,
+        "Healthy life expectancy" : 0.92,
+        "Freedom to make life choices" : 0.357,
+        "Generosity" : 0.187,
+        "Perceptions of corruption" : 0.056
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530527"),
+        "Overall rank" : 15,
+        "Country or region" : "United Kingdom",
+        "Score" : 7.054,
+        "GDP per capita" : 1.333,
+        "Social support" : 1.538,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.45,
+        "Generosity" : 0.348,
+        "Perceptions of corruption" : 0.278
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530528"),
+        "Overall rank" : 27,
+        "Country or region" : "Guatemala",
+        "Score" : 6.436,
+        "GDP per capita" : 0.8,
+        "Social support" : 1.269,
+        "Healthy life expectancy" : 0.746,
+        "Freedom to make life choices" : 0.535,
+        "Generosity" : 0.175,
+        "Perceptions of corruption" : 0.078
+}
+Type "it" for more
+
+13 FIND THE DETAILS OF COUNTRIES THAT HAVE AN OVERALL RANK >=150
+
+> db.worldhappiness.find({"Overall rank":{$gte:150}}).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a7"),
+        "Overall rank" : 151,
+        "Country or region" : "Yemen",
+        "Score" : 3.38,
+        "GDP per capita" : 0.287,
+        "Social support" : 1.163,
+        "Healthy life expectancy" : 0.463,
+        "Freedom to make life choices" : 0.143,
+        "Generosity" : 0.108,
+        "Perceptions of corruption" : 0.077
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a8"),
+        "Overall rank" : 150,
+        "Country or region" : "Malawi",
+        "Score" : 3.41,
+        "GDP per capita" : 0.191,
+        "Social support" : 0.56,
+        "Healthy life expectancy" : 0.495,
+        "Freedom to make life choices" : 0.443,
+        "Generosity" : 0.218,
+        "Perceptions of corruption" : 0.089
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a9"),
+        "Overall rank" : 152,
+        "Country or region" : "Rwanda",
+        "Score" : 3.334,
+        "GDP per capita" : 0.359,
+        "Social support" : 0.711,
+        "Healthy life expectancy" : 0.614,
+        "Freedom to make life choices" : 0.555,
+        "Generosity" : 0.217,
+        "Perceptions of corruption" : 0.411
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ab"),
+        "Overall rank" : 153,
+        "Country or region" : "Tanzania",
+        "Score" : 3.231,
+        "GDP per capita" : 0.476,
+        "Social support" : 0.885,
+        "Healthy life expectancy" : 0.499,
+        "Freedom to make life choices" : 0.417,
+        "Generosity" : 0.276,
+        "Perceptions of corruption" : 0.147
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ac"),
+        "Overall rank" : 154,
+        "Country or region" : "Afghanistan",
+        "Score" : 3.203,
+        "GDP per capita" : 0.35,
+        "Social support" : 0.517,
+        "Healthy life expectancy" : 0.361,
+        "Freedom to make life choices" : 0,
+        "Generosity" : 0.158,
+        "Perceptions of corruption" : 0.025
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ad"),
+        "Overall rank" : 156,
+        "Country or region" : "South Sudan",
+        "Score" : 2.853,
+        "GDP per capita" : 0.306,
+        "Social support" : 0.575,
+        "Healthy life expectancy" : 0.295,
+        "Freedom to make life choices" : 0.01,
+        "Generosity" : 0.202,
+        "Perceptions of corruption" : 0.091
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ae"),
+        "Overall rank" : 155,
+        "Country or region" : "Central African Republic",
+        "Score" : 3.083,
+        "GDP per capita" : 0.026,
+        "Social support" : 0,
+        "Healthy life expectancy" : 0.105,
+        "Freedom to make life choices" : 0.225,
+        "Generosity" : 0.235,
+        "Perceptions of corruption" : 0.035
+}
+
+14 FIND THE DETAILS OF THE COUNTRY WITH HIGHEST GENEROSITY
+
+> db.worldhappiness.aggregate([{$sort:{"Generosity":-1}}]).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd48530595"),
+        "Overall rank" : 131,
+        "Country or region" : "Myanmar",
+        "Score" : 4.36,
+        "GDP per capita" : 0.71,
+        "Social support" : 1.181,
+        "Healthy life expectancy" : 0.555,
+        "Freedom to make life choices" : 0.525,
+        "Generosity" : 0.566,
+        "Perceptions of corruption" : 0.172
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853056d"),
+        "Overall rank" : 92,
+        "Country or region" : "Indonesia",
+        "Score" : 5.192,
+        "GDP per capita" : 0.931,
+        "Social support" : 1.203,
+        "Healthy life expectancy" : 0.66,
+        "Freedom to make life choices" : 0.491,
+        "Generosity" : 0.498,
+        "Perceptions of corruption" : 0.028
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305aa"),
+        "Overall rank" : 147,
+        "Country or region" : "Haiti",
+        "Score" : 3.597,
+        "GDP per capita" : 0.323,
+        "Social support" : 0.688,
+        "Healthy life expectancy" : 0.449,
+        "Freedom to make life choices" : 0.026,
+        "Generosity" : 0.419,
+        "Perceptions of corruption" : 0.11
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530522"),
+        "Overall rank" : 22,
+        "Country or region" : "Malta",
+        "Score" : 6.726,
+        "GDP per capita" : 1.3,
+        "Social support" : 1.52,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.564,
+        "Generosity" : 0.375,
+        "Perceptions of corruption" : 0.151
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530586"),
+        "Overall rank" : 121,
+        "Country or region" : "Kenya",
+        "Score" : 4.509,
+        "GDP per capita" : 0.512,
+        "Social support" : 0.983,
+        "Healthy life expectancy" : 0.581,
+        "Freedom to make life choices" : 0.431,
+        "Generosity" : 0.372,
+        "Perceptions of corruption" : 0.053
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530574"),
+        "Overall rank" : 95,
+        "Country or region" : "Bhutan",
+        "Score" : 5.082,
+        "GDP per capita" : 0.813,
+        "Social support" : 1.321,
+        "Healthy life expectancy" : 0.604,
+        "Freedom to make life choices" : 0.457,
+        "Generosity" : 0.37,
+        "Perceptions of corruption" : 0.167
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530549"),
+        "Overall rank" : 52,
+        "Country or region" : "Thailand",
+        "Score" : 6.008,
+        "GDP per capita" : 1.05,
+        "Social support" : 1.409,
+        "Healthy life expectancy" : 0.828,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.359,
+        "Perceptions of corruption" : 0.028
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530527"),
+        "Overall rank" : 15,
+        "Country or region" : "United Kingdom",
+        "Score" : 7.054,
+        "GDP per capita" : 1.333,
+        "Social support" : 1.538,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.45,
+        "Generosity" : 0.348,
+        "Perceptions of corruption" : 0.278
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530534"),
+        "Overall rank" : 11,
+        "Country or region" : "Australia",
+        "Score" : 7.228,
+        "GDP per capita" : 1.372,
+        "Social support" : 1.548,
+        "Healthy life expectancy" : 1.036,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.332,
+        "Perceptions of corruption" : 0.29
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305a6"),
+        "Overall rank" : 149,
+        "Country or region" : "Syria",
+        "Score" : 3.462,
+        "GDP per capita" : 0.619,
+        "Social support" : 0.378,
+        "Healthy life expectancy" : 0.44,
+        "Freedom to make life choices" : 0.013,
+        "Generosity" : 0.331,
+        "Perceptions of corruption" : 0.141
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853053c"),
+        "Overall rank" : 41,
+        "Country or region" : "Uzbekistan",
+        "Score" : 6.174,
+        "GDP per capita" : 0.745,
+        "Social support" : 1.529,
+        "Healthy life expectancy" : 0.756,
+        "Freedom to make life choices" : 0.631,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.24
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853056a"),
+        "Overall rank" : 86,
+        "Country or region" : "Kyrgyzstan",
+        "Score" : 5.261,
+        "GDP per capita" : 0.551,
+        "Social support" : 1.438,
+        "Healthy life expectancy" : 0.723,
+        "Freedom to make life choices" : 0.508,
+        "Generosity" : 0.3,
+        "Perceptions of corruption" : 0.023
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530533"),
+        "Overall rank" : 16,
+        "Country or region" : "Ireland",
+        "Score" : 7.021,
+        "GDP per capita" : 1.499,
+        "Social support" : 1.553,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.516,
+        "Generosity" : 0.298,
+        "Perceptions of corruption" : 0.31
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530581"),
+        "Overall rank" : 100,
+        "Country or region" : "Nepal",
+        "Score" : 4.913,
+        "GDP per capita" : 0.446,
+        "Social support" : 1.226,
+        "Healthy life expectancy" : 0.677,
+        "Freedom to make life choices" : 0.439,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.089
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051f"),
+        "Overall rank" : 19,
+        "Country or region" : "United States",
+        "Score" : 6.892,
+        "GDP per capita" : 1.433,
+        "Social support" : 1.457,
+        "Healthy life expectancy" : 0.874,
+        "Freedom to make life choices" : 0.454,
+        "Generosity" : 0.28,
+        "Perceptions of corruption" : 0.128
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd485305ab"),
+        "Overall rank" : 153,
+        "Country or region" : "Tanzania",
+        "Score" : 3.231,
+        "GDP per capita" : 0.476,
+        "Social support" : 0.885,
+        "Healthy life expectancy" : 0.499,
+        "Freedom to make life choices" : 0.417,
+        "Generosity" : 0.276,
+        "Perceptions of corruption" : 0.147
+}
+15 RESTRAIN THE OUTPUT TO ONLY 1 TUPLE
+
+> db.worldhappiness.find().limit(1).pretty();
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+
+> db.worldhappiness.aggregate([{$sort:{"Generosity":1}},{$limit:1}]).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd48530565"),
+        "Overall rank" : 82,
+        "Country or region" : "Greece",
+        "Score" : 5.287,
+        "GDP per capita" : 1.181,
+        "Social support" : 1.156,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.067,
+        "Generosity" : 0,
+        "Perceptions of corruption" : 0.034
+}
+
+16  > db.test.find().pretty();
+{ "_id" : ObjectId("6078419ffc53975d5706840d"), "Overall rank" : 1 }
+{ "_id" : ObjectId("6078425afc53975d5706840f") }
+{
+        "_id" : ObjectId("607842b0fc53975d57068410"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6079290cfc53975d57068411"),
+        "id" : ObjectId("6078161f592bd5cd48530515")
+}
+> db.test.find(ObjectId("6079290cfc53975d57068411")).pretty();
+{
+        "_id" : ObjectId("6079290cfc53975d57068411"),
+        "id" : ObjectId("6078161f592bd5cd48530515")
+}
+
+17 group by name of classes and find the number of students in each class
+  
+  > db.test2.aggregate([{$group:{_id:"$name",total_no_of_students:{$sum:1}}}])
+{ "_id" : "a", "total_no_of_students" : 2 }
+{ "_id" : "b", "total_no_of_students" : 1 }
+{ "_id" : "c", "total_no_of_students" : 1 }
+>
+
+19 use in operator to display particular ouptut
+
+> db.test2.find({name: {$in:["b","c"]}})
+{ "_id" : ObjectId("60792d02fc53975d57068416"), "name" : "b", "marks" : [ 4, 2, 3 ] }
+{ "_id" : ObjectId("60792d0cfc53975d57068417"), "name" : "c", "marks" : [ 5, 6, 3 ] }
+>
+
+
+20  REGEX 
+ > db.worldhappiness.find({"Country or region":{$regex:"a"}}).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530516"),
+        "Overall rank" : 4,
+        "Country or region" : "Iceland",
+        "Score" : 7.494,
+        "GDP per capita" : 1.38,
+        "Social support" : 1.624,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.591,
+        "Generosity" : 0.354,
+        "Perceptions of corruption" : 0.118
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530517"),
+        "Overall rank" : 6,
+        "Country or region" : "Switzerland",
+        "Score" : 7.48,
+        "GDP per capita" : 1.452,
+        "Social support" : 1.526,
+        "Healthy life expectancy" : 1.052,
+        "Freedom to make life choices" : 0.572,
+        "Generosity" : 0.263,
+        "Perceptions of corruption" : 0.343
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530518"),
+        "Overall rank" : 5,
+        "Country or region" : "Netherlands",
+        "Score" : 7.488,
+        "GDP per capita" : 1.396,
+        "Social support" : 1.522,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.557,
+        "Generosity" : 0.322,
+        "Perceptions of corruption" : 0.298
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051a"),
+        "Overall rank" : 9,
+        "Country or region" : "Canada",
+        "Score" : 7.278,
+        "GDP per capita" : 1.365,
+        "Social support" : 1.505,
+        "Healthy life expectancy" : 1.039,
+        "Freedom to make life choices" : 0.584,
+        "Generosity" : 0.285,
+        "Perceptions of corruption" : 0.308
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051b"),
+        "Overall rank" : 8,
+        "Country or region" : "New Zealand",
+        "Score" : 7.307,
+        "GDP per capita" : 1.303,
+        "Social support" : 1.557,
+        "Healthy life expectancy" : 1.026,
+        "Freedom to make life choices" : 0.585,
+        "Generosity" : 0.33,
+        "Perceptions of corruption" : 0.38
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051c"),
+        "Overall rank" : 3,
+        "Country or region" : "Norway",
+        "Score" : 7.554,
+        "GDP per capita" : 1.488,
+        "Social support" : 1.582,
+        "Healthy life expectancy" : 1.028,
+        "Freedom to make life choices" : 0.603,
+        "Generosity" : 0.271,
+        "Perceptions of corruption" : 0.341
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051d"),
+        "Overall rank" : 17,
+        "Country or region" : "Germany",
+        "Score" : 6.985,
+        "GDP per capita" : 1.373,
+        "Social support" : 1.454,
+        "Healthy life expectancy" : 0.987,
+        "Freedom to make life choices" : 0.495,
+        "Generosity" : 0.261,
+        "Perceptions of corruption" : 0.265
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853051f"),
+        "Overall rank" : 19,
+        "Country or region" : "United States",
+        "Score" : 6.892,
+        "GDP per capita" : 1.433,
+        "Social support" : 1.457,
+        "Healthy life expectancy" : 0.874,
+        "Freedom to make life choices" : 0.454,
+        "Generosity" : 0.28,
+        "Perceptions of corruption" : 0.128
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530521"),
+        "Overall rank" : 21,
+        "Country or region" : "United Arab Emirates",
+        "Score" : 6.825,
+        "GDP per capita" : 1.503,
+        "Social support" : 1.31,
+        "Healthy life expectancy" : 0.825,
+        "Freedom to make life choices" : 0.598,
+        "Generosity" : 0.262,
+        "Perceptions of corruption" : 0.182
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530522"),
+        "Overall rank" : 22,
+        "Country or region" : "Malta",
+        "Score" : 6.726,
+        "GDP per capita" : 1.3,
+        "Social support" : 1.52,
+        "Healthy life expectancy" : 0.999,
+        "Freedom to make life choices" : 0.564,
+        "Generosity" : 0.375,
+        "Perceptions of corruption" : 0.151
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530524"),
+        "Overall rank" : 24,
+        "Country or region" : "France",
+        "Score" : 6.592,
+        "GDP per capita" : 1.324,
+        "Social support" : 1.472,
+        "Healthy life expectancy" : 1.045,
+        "Freedom to make life choices" : 0.436,
+        "Generosity" : 0.111,
+        "Perceptions of corruption" : 0.183
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530525"),
+        "Overall rank" : 25,
+        "Country or region" : "Taiwan",
+        "Score" : 6.446,
+        "GDP per capita" : 1.368,
+        "Social support" : 1.43,
+        "Healthy life expectancy" : 0.914,
+        "Freedom to make life choices" : 0.351,
+        "Generosity" : 0.242,
+        "Perceptions of corruption" : 0.097
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530528"),
+        "Overall rank" : 27,
+        "Country or region" : "Guatemala",
+        "Score" : 6.436,
+        "GDP per capita" : 0.8,
+        "Social support" : 1.269,
+        "Healthy life expectancy" : 0.746,
+        "Freedom to make life choices" : 0.535,
+        "Generosity" : 0.175,
+        "Perceptions of corruption" : 0.078
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd48530529"),
+        "Overall rank" : 29,
+        "Country or region" : "Qatar",
+        "Score" : 6.374,
+        "GDP per capita" : 1.684,
+        "Social support" : 1.313,
+        "Healthy life expectancy" : 0.871,
+        "Freedom to make life choices" : 0.555,
+        "Generosity" : 0.22,
+        "Perceptions of corruption" : 0.167
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052a"),
+        "Overall rank" : 30,
+        "Country or region" : "Spain",
+        "Score" : 6.354,
+        "GDP per capita" : 1.286,
+        "Social support" : 1.484,
+        "Healthy life expectancy" : 1.062,
+        "Freedom to make life choices" : 0.362,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.079
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052b"),
+        "Overall rank" : 28,
+        "Country or region" : "Saudi Arabia",
+        "Score" : 6.375,
+        "GDP per capita" : 1.403,
+        "Social support" : 1.357,
+        "Healthy life expectancy" : 0.795,
+        "Freedom to make life choices" : 0.439,
+        "Generosity" : 0.08,
+        "Perceptions of corruption" : 0.132
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052c"),
+        "Overall rank" : 31,
+        "Country or region" : "Panama",
+        "Score" : 6.321,
+        "GDP per capita" : 1.149,
+        "Social support" : 1.442,
+        "Healthy life expectancy" : 0.91,
+        "Freedom to make life choices" : 0.516,
+        "Generosity" : 0.109,
+        "Perceptions of corruption" : 0.054
+}
+{
+        "_id" : ObjectId("6078161f592bd5cd4853052d"),
+        "Overall rank" : 33,
+        "Country or region" : "Uruguay",
+        "Score" : 6.293,
+        "GDP per capita" : 1.124,
+        "Social support" : 1.465,
+        "Healthy life expectancy" : 0.891,
+        "Freedom to make life choices" : 0.523,
+        "Generosity" : 0.127,
+        "Perceptions of corruption" : 0.15
+}
+Type "it" for more
+>
+
+
+21 MAP REDUCE
+
+> var reduce=function(Score,Generosity) {return Math.max(Generosity)};
+> db.worldhapppiness.mapReduce(map,reduce,{out:"result"});
+{ "result" : "result", "ok" : 1 }
+> db.result.find().pretty();
+> db.result.find().pretty();
+> var reduce1=function(Score,Generosity) {return max(Generosity)};
+> db.worldhapppiness.mapReduce(map,reduce1,{out:"result1"});
+{ "result" : "result1", "ok" : 1 }
+> db.result1.find().pretty();
+> var reduce2=function(Score,Generosity) {return Array.sum(Generosity)};
+> db.worldhapppiness.mapReduce(map,reduce2,{out:"result2"});
+{ "result" : "result2", "ok" : 1 }
+> db.result2.find().pretty();
+
+
+22 LOOKUP
+CREATING ANOTHER COLLECTION AND ADDING COMMON VALUES
+> db.createCollection("test");
+{ "ok" : 1 }
+> db.worldhappiness.find().pretty()[0]
+{
+        "_id" : ObjectId("6078161f592bd5cd48530514"),
+        "Overall rank" : 1,
+        "Country or region" : "Finland",
+        "Score" : 7.769,
+        "GDP per capita" : 1.34,
+        "Social support" : 1.587,
+        "Healthy life expectancy" : 0.986,
+        "Freedom to make life choices" : 0.596,
+        "Generosity" : 0.153,
+        "Perceptions of corruption" : 0.393
+}
+> db.test.insert({"Overall rank" : 1,})
+WriteResult({ "nInserted" : 1 })
+> db.test.insert({"Country or region" : "Finland","Score" : 7.769,"GDP per capita" : 1.34,"Social support" : 1.587,"Healthy life expectancy" : 0.986,"Freedom to make life choices" : 0.596, "Generosity" : 0.153,         "Perceptions of corruption" : 0.393})
+WriteResult({ "nInserted" : 1 })
+> db.worldhappiness.find().pretty()[1]
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+>> db.test.insert({ "Overall rank" : 2, "Country or region" : "Denmark", "Score" : 7.6, "GDP per capita" : 1.383, "Social support" : 1.573, "Healthy life expectancy" : 0.996, "Freedom to make life choices" : 0.592,"Generosity" : 0.252, "Perceptions of corruption" : 0.41})
+WriteResult({ "nInserted" : 1 })
+> db.test.remove({"Country or region" : "Finland"})
+WriteResult({ "nRemoved" : 1 })
+> db.test.find().pretty()
+{ "_id" : ObjectId("6078419ffc53975d5706840d"), "Overall rank" : 1 }
+{ "_id" : ObjectId("6078425afc53975d5706840f") }
+{
+        "_id" : ObjectId("607842b0fc53975d57068410"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41
+}
+UPDATE
+> db.test.update({"Overall rank":2},{$set:{"Score":7.60}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+
+MAP REDUCE OUTPUT
+> db.worldhappiness.aggregate([{$match:{"Overall rank":2}},{$lookup:{from :'test',localField:'Overall rank',foreignField:'Overall rank',as:'tests'}}]).pretty()
+{
+        "_id" : ObjectId("6078161f592bd5cd48530515"),
+        "Overall rank" : 2,
+        "Country or region" : "Denmark",
+        "Score" : 7.6,
+        "GDP per capita" : 1.383,
+        "Social support" : 1.573,
+        "Healthy life expectancy" : 0.996,
+        "Freedom to make life choices" : 0.592,
+        "Generosity" : 0.252,
+        "Perceptions of corruption" : 0.41,
+        "tests" : [
+                {
+                        "_id" : ObjectId("607842b0fc53975d57068410"),
+                        "Overall rank" : 2,
+                        "Country or region" : "Denmark",
+                        "Score" : 7.6,
+                        "GDP per capita" : 1.383,
+                        "Social support" : 1.573,
+                        "Healthy life expectancy" : 0.996,
+                        "Freedom to make life choices" : 0.592,
+                        "Generosity" : 0.252,
+                        "Perceptions of corruption" : 0.41
+                }
+        ]
+}
+>
+
+
+
+
+
+
+
